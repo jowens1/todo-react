@@ -1,5 +1,4 @@
-import TodosView from "./pages/todos-view";
-import "./App.css";
+import TodosView from "./pages/todosView";
 import "./styles/global.css";
 
 function App() {
