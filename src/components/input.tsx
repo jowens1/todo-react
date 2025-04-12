@@ -1,16 +1,17 @@
 const Input = () => {
   return (
-    <form action="" className="flex flex-col gap-4">
-      <div className="flex flex-col">
-        <label className="text-white">Enter your next task:</label>
-        <input className="p-1 rounded-sm" />
+    <form action="">
+      <div className="">
+        <label className="justify-items-center">Enter your next task:</label>
+        <input className="border h-8 rounded indent-2" />
+
+        <button
+          type="button"
+          className="bg-green-100 rounded-lg hover:bg-green-200 p-1 justify-items-center"
+        >
+          Add task
+        </button>
       </div>
-      <button
-        type="button"
-        className="bg-green-100 rounded-lg hover:bg-green-200 p-1"
-      >
-        Add task
-      </button>
     </form>
   );
 };

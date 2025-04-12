@@ -5,7 +5,6 @@ const TodosView = () => {
   return (
     <Layout>
       <Container>
-        {"Todos View"}
         <TodoForm />
       </Container>
     </Layout>
