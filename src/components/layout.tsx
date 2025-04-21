@@ -3,7 +3,7 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => (
-  <div className="flex h-screen flex-col items-center pt-4 bg-blue-100">
+  <div className="h-screen flex-col p-4 bg-blue-100">
     {children}
   </div>
 );

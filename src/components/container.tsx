@@ -3,9 +3,7 @@ type Props = {
 };
 
 const Container = ({ children }: Props) => (
-  <div className="container flex flex-col items-center justify-center">
-    {children}
-  </div>
+  <div className="flex pb-4 items-center justify-center">{children}</div>
 );
 
 export default Container;
