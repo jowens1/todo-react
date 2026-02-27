@@ -1,4 +1,5 @@
 const TodoForm = () => (
+  <>
     <form action="">
       <div className="">
         <label className="justify-items-center">Enter your next task:</label>
@@ -12,5 +13,6 @@ const TodoForm = () => (
         </button>
       </div>
     </form>
+  </>
 );
 export default TodoForm;
