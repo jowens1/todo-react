@@ -1,29 +1,38 @@
-import { UnknownAction } from 'redux'
-interface todoInterface {
+import { createSlice } from '@reduxjs/toolkit'
+
+export interface TodoInterface {
     id: number,
     text: string,
     completed: boolean
 }
 
-const initialState: todoInterface[] = [{ id: 0, text: 'init', completed: true }];
-
-function nextTodoId(todos: todoInterface[]) {
-    const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
-    return maxId + 1
+export interface TodosListInterface {
+    todos: TodoInterface[]
 }
 
+const initialState: TodosListInterface = {
+    todos: []
+}
 
-export default function todosReducer(state = initialState, action: UnknownAction) {
-    switch (action.type) {
-        case 'todos/todoAdded': {
-            return [...state, {
-                id: nextTodoId(state),
-                text: action.payload,
-                completed: false
-            }]
+export const todoSlice = createSlice({
+    name: "todo",
+    initialState: initialState,
+    reducers: {
+        addTodo: (state, { payload: { text, id, completed } }) => {
+            state.todos.push({ id, text, completed })
+        },
+        deleteTodo: (state, { payload: { todoId } }) => {
+            state.todos = state.todos.filter((todo) => todo.id !== todoId)
+        },
+        editTodo: (state, { payload: { editedTodo } }) => {
+            console.log('editTodo', editedTodo)
+            state.todos = state.todos.map((todo) => todo.id === editedTodo.id ? editedTodo : todo)
+        },
+        toggleTodo: (state, { payload: { todoId } }) => {
+            state.todos = state.todos.map(todo => todo.id === todoId ? { ...todo, completed: !todo.completed } : todo)
         }
-        default:
-            return state
     }
+})
 
-}
+export const { addTodo, deleteTodo, editTodo, toggleTodo } = todoSlice.actions;
+export default todoSlice.reducer;
